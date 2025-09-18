@@ -15,7 +15,7 @@ target_include_directories(geometry_tool
 
 include(GNUInstallDirs)
 install(
-    DIRECTORY include/geo
+    DIRECTORY include/
     DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
 )
 install(TARGETS geometry_tool EXPORT geometryTargets)
