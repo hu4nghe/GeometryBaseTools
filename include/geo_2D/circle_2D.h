@@ -8,9 +8,10 @@
  * @copyright Copyright (c) 2025
  * 
  */
- #pragma once
 
-#include "point_2D.h"
+#pragma once
+
+#include "geo_2D/point_2D.h"
 
 namespace geotools
 {
@@ -18,13 +19,9 @@ namespace geotools
     {
         geotools::point_2D center;
         double   radius;
-
     public:
         circle_2D() = default; 
-        circle_2D(geotools::point_2D center, double radius) : center(center), radius(radius) {}
-
-        bool 
-        contains(const geotools::point_2D& p) 
-        const{ return center.distance(p) <= radius; }
+        circle_2D(geotools::point_2D center, double radius);
+        bool contains(const geotools::point_2D& p) const;
     };
 } // namespace geotools
