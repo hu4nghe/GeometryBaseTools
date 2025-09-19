@@ -14,7 +14,7 @@
 #include <utility>
 #include <limits>
 
-namespace geotools 
+namespace tools_2D 
 {
     template<std::floating_point T>
     inline auto dbl_delta(T a, T b, T epsilon = std::numeric_limits<T>::epsilon())
@@ -60,4 +60,4 @@ namespace geotools
     {
         return dbl_sup(a, b, epsilon) || dbl_eq(a, b, epsilon);
     }
-} // namespace geotools
+} // namespace tools_2D

@@ -2,11 +2,11 @@
 
 #include "geo_2D/point_2D.h"
 
-namespace geotools
+namespace tools_2D
 {
     class vector_2D 
     {
-        geotools::point_2D cord;
+        tools_2D::point cord;
     public :
         
         vector_2D()                             = default;
@@ -16,8 +16,8 @@ namespace geotools
         vector_2D &operator=(vector_2D &&)      = default;
        ~vector_2D()                             = default;
         
-        vector_2D(const geotools::point_2D& p);
-        vector_2D(const geotools::point_2D& p1, const geotools::point_2D& p2);
+        vector_2D(const tools_2D::point& p);
+        vector_2D(const tools_2D::point& p1, const tools_2D::point& p2);
         vector_2D operator+(const vector_2D &other) const;
         vector_2D operator-(const vector_2D& other) const;
         vector_2D operator*(double t) const;

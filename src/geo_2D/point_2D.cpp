@@ -1,125 +1,111 @@
 #include "geo_2D/point_2D.h"
 #include "base/dbl_compare.h"
 
-namespace geotools
+namespace tools_2D
 {
-    geotools::point_2D::point_2D()                          : x(0)      , y(0)      , ID(next_ID++) {}
-    geotools::point_2D::point_2D(double x, double y)        : x(x)      , y(y)      , ID(next_ID++) {}
-    geotools::point_2D::point_2D(const point_2D& other)     : x(other.x), y(other.y), ID(next_ID++) {}
-    geotools::point_2D::point_2D(point_2D&& other) noexcept : x(other.x), y(other.y), ID(std::exchange(other.ID, 0)) {}
+    tools_2D::point::point()                       : x(0)      , y(0)      , ID(next_ID++) {}
+    tools_2D::point::point(double x, double y)     : x(x)      , y(y)      , ID(next_ID++) {}
+    tools_2D::point::point(const point& other)     : x(other.x), y(other.y), ID(next_ID++) {}
+    tools_2D::point::point(point&& other) noexcept : x(other.x), y(other.y), ID(std::exchange(other.ID, 0)) {}
         
-
-    point_2D& 
-    geotools::point_2D::operator=(const point_2D& other)     
+    point& 
+    tools_2D::point::operator=(const point& other)     
     {
         if (this != &other)
         {
             x = other.x; 
             y = other.y; 
-            ID = next_ID++; 
+            ID = next_ID++; // Assign new ID for new point.
         } 
         return *this; 
     }
 
-    point_2D& 
-    geotools::point_2D::operator=(point_2D&& other) 
+    point& 
+    tools_2D::point::operator=(point&& other) 
     noexcept 
     {
         if (this != &other)
         {
             x = other.x; 
             y = other.y; 
-            ID = other.ID; 
-            other.ID = 0; //original object is moved
+            ID = other.ID; // New point takes over old's ID
+            other.ID = 0; // Original point is moved.
         } 
         return *this; 
     } 
 
     bool
-    geotools::point_2D::operator==(const point_2D& other)
+    tools_2D::point::operator==(const point& other)
     const 
     { 
-        return ID == other.ID && geotools::dbl_eq(x, other.x) && geotools::dbl_eq(y, other.y); 
+        return ID == other.ID && tools_2D::dbl_eq(x, other.x) && tools_2D::dbl_eq(y, other.y); 
     }
 
     bool
-    geotools::point_2D::operator!=(const point_2D& other)   
+    tools_2D::point::operator!=(const point& other)   
     const 
     { 
         return !(*this == other); 
     }
     bool
-    geotools::point_2D::operator<(const point_2D& other) 
+    tools_2D::point::operator<(const point& other) 
     const 
     { 
-        return geotools::dbl_eq(x, other.x) ? geotools::dbl_inf(y, other.y) : geotools::dbl_inf(x, other.x); 
-    }
-    bool
-    geotools::point_2D::operator>(const point_2D& other)   
-    const
-    { 
-        return (*this != other) && !(*this < other); 
+        return tools_2D::dbl_eq(x, other.x) ? tools_2D::dbl_inf(y, other.y) : tools_2D::dbl_inf(x, other.x); 
     }
     
-    point_2D 
-    geotools::point_2D::operator+(const point_2D& other) 
+    point 
+    tools_2D::point::operator+(const point& other) 
     const 
     { 
         return {x + other.x, y + other.y}; 
     }
     
-    point_2D 
-    geotools::point_2D::operator-(const point_2D& other) 
+    point 
+    tools_2D::point::operator-(const point& other) 
     const 
     { 
         return {x - other.x, y - other.y}; 
     }
     
-    point_2D 
-    geotools::point_2D::operator*(double t) 
+    point 
+    tools_2D::point::operator*(double t) 
     const 
     { 
         return {x * t, y * t}; 
     }
-    point_2D 
-    geotools::point_2D::operator/(double t) 
-    const 
-    { 
-        return {x / t, y / t}; 
-    }
-    
+
     double
-    geotools::point_2D::distance(const point_2D& other)  
-    
+    tools_2D::point::distance(const point& other)  
     const 
     { 
         return std::hypot(x - other.x, y - other.y); 
     }
     
     double
-    geotools::point_2D::slope(const point_2D& other)   
+    tools_2D::point::slope(const point& other)   
     const 
     { 
-        return geotools::dbl_eq(x, other.x) ? std::numeric_limits<double>::infinity() : (y - other.y) / (x - other.x); 
+        return tools_2D::dbl_eq(x, other.x) ? std::numeric_limits<double>::infinity() : (y - other.y) / (x - other.x); 
     }
     
-    const int
-    geotools::point_2D::get_ID() 
+    const std::size_t
+    tools_2D::point::get_ID() 
     const 
     { 
         return ID;
     }
     
     const std::pair<double, double>
-    geotools::point_2D::get_coordinates() 
+    tools_2D::point::get_coordinates() 
     const 
     { 
         return {x, y}; 
     }
     
     void
-    geotools::point_2D::set_coordinate(double new_x, double new_y) 
+    tools_2D::point::set_coordinate(double new_x, double new_y) 
     { 
         x = new_x; y = new_y; 
     }           
-} // namespace geotools
+} // namespace tools_2D

@@ -1,9 +1,9 @@
 #include "geo_2D/circle_2D.h"
-namespace geotools 
+namespace tools_2D 
 {
-    geotools::circle_2D::circle_2D(geotools::point_2D center, double radius) : center(center), radius(radius) {}
+    tools_2D::circle::circle(tools_2D::point center, double radius) : center(center), radius(radius) {}
 
     bool 
-    geotools::circle_2D::contains(const geotools::point_2D& p) const
+    tools_2D::circle::contains(const tools_2D::point& p) const
     { return center.distance(p) <= radius; }
-} // namespace geotools
+} // namespace tools_2D

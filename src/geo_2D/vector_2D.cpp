@@ -1,26 +1,26 @@
 #include "geo_2D/vector_2D.h"
 
-namespace geotools 
+namespace tools_2D 
 {
-    geotools::vector_2D::vector_2D(const geotools::point_2D& p) 
+    tools_2D::vector_2D::vector_2D(const tools_2D::point& p) 
         : cord(p) {}
-    geotools::vector_2D::vector_2D(const geotools::point_2D& p1, const geotools::point_2D& p2) 
+    tools_2D::vector_2D::vector_2D(const tools_2D::point& p1, const tools_2D::point& p2) 
         : cord(p2 - p1) {}
 
     vector_2D 
-    geotools::vector_2D::operator+(const vector_2D &other) 
+    tools_2D::vector_2D::operator+(const vector_2D &other) 
     const { return {cord + other.cord}; }
 
     vector_2D 
-    geotools::vector_2D::operator-(const vector_2D& other) 
+    tools_2D::vector_2D::operator-(const vector_2D& other) 
     const { return {cord - other.cord}; }
 
     vector_2D 
-    geotools::vector_2D::operator*(double t) 
+    tools_2D::vector_2D::operator*(double t) 
     const { return {cord * t }; }
 
     double 
-    geotools::vector_2D::dot(const vector_2D& other) 
+    tools_2D::vector_2D::dot(const vector_2D& other) 
     const 
     { 
         const auto& [x, y] = cord.get_coordinates();
@@ -30,7 +30,7 @@ namespace geotools
     }
 
     double 
-    geotools::vector_2D::cross(const vector_2D& other) 
+    tools_2D::vector_2D::cross(const vector_2D& other) 
     const 
     {
         const auto& [x, y] = cord.get_coordinates();
@@ -39,7 +39,7 @@ namespace geotools
     }
 
     double 
-    geotools::vector_2D::length_sq() 
+    tools_2D::vector_2D::length_sq() 
     const 
     {
         const auto& [x, y] = cord.get_coordinates();
@@ -47,7 +47,7 @@ namespace geotools
     }
 
     std::pair<double, double>
-    geotools::vector_2D::get_coordinates()
+    tools_2D::vector_2D::get_coordinates()
     const { return cord.get_coordinates(); }
 
 }

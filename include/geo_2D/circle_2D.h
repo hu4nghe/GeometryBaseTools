@@ -8,20 +8,45 @@
  * @copyright Copyright (c) 2025
  * 
  */
-
 #pragma once
 
 #include "geo_2D/point_2D.h"
 
-namespace geotools
+namespace tools_2D
 {
-    class circle_2D
+    class circle
     {
-        geotools::point_2D center;
-        double   radius;
+        //Members 
+        tools_2D::point center;
+        double          radius;
+
     public:
-        circle_2D() = default; 
-        circle_2D(geotools::point_2D center, double radius);
-        bool contains(const geotools::point_2D& p) const;
+
+        /// Constructors ///
+
+        /**
+         * @brief Default constructor
+         * 
+         */
+        circle() = default; 
+        
+        /**
+         * @brief Construct a new circle object.
+         * 
+         * @param center center of circle
+         * @param radius radius of circle
+         */
+        circle(tools_2D::point center, double radius);
+
+        /// Member functions ///
+
+        /**
+         * @brief Check if a point is inside the circle.
+         * 
+         * @param p Point to check
+         * @return true 
+         * @return false 
+         */
+        bool contains(const tools_2D::point& p) const;
     };
-} // namespace geotools
+} // namespace tools_2D

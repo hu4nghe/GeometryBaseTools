@@ -13,16 +13,16 @@
 #include "geo_2D/point_2D.h"
 #include "point_2D.h"
 
-namespace geotools 
+namespace tools_2D 
 {
     class edge_2D
     {
-        std::pair<geotools::point_2D, geotools::point_2D> endpoints;
+        std::pair<tools_2D::point, tools_2D::point> endpoints;
     public:
         edge_2D() = default;
-        edge_2D(const geotools::point_2D&, const geotools::point_2D&);
+        edge_2D(const tools_2D::point&, const tools_2D::point&);
         bool operator==(const edge_2D&) const;
         bool operator<(const edge_2D&) const;
-        auto get_points() const ->std::pair<geotools::point_2D, geotools::point_2D>;
+        auto get_points() const ->std::pair<tools_2D::point, tools_2D::point>;
     };
-} // namespace geotools
+} // namespace tools_2D

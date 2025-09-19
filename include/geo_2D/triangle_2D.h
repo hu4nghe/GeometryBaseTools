@@ -15,19 +15,19 @@
 #include "geo_2D/edge_2D.h"
 #include "geo_2D/circle_2D.h"
 
-namespace geotools
+namespace tools_2D
 {
     class triangle_2D
     {
-        std::array<geotools::point_2D,3> vertices;
+        std::array<tools_2D::point,3> vertices;
     
     public:
     
         triangle_2D() = default;
-        triangle_2D(const geotools::point_2D& a, const geotools::point_2D& b, const geotools::point_2D& c);
-        triangle_2D(const geotools::point_2D& p, const geotools::edge_2D& e);
-        bool containsVertex(const geotools::point_2D& p) const;
-        geotools::circle_2D circum_circle() const;
+        triangle_2D(const tools_2D::point& a, const tools_2D::point& b, const tools_2D::point& c);
+        triangle_2D(const tools_2D::point& p, const tools_2D::edge_2D& e);
+        bool containsVertex(const tools_2D::point& p) const;
+        tools_2D::circle circum_circle() const;
         
     };
-} // namespace geotools
+} // namespace tools_2D
