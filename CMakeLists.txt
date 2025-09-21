@@ -7,7 +7,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_library(geometry_tool STATIC
     src/geo_2D/circle_2D.cpp
-    src/geo_2D/edge_2D.cpp
+    src/geo_2D/segment_2D.cpp
     src/geo_2D/point_2D.cpp
     src/geo_2D/triangle_2D.cpp
     src/geo_2D/vector_2D.cpp)

@@ -12,7 +12,7 @@
 
 #include <array>
 
-#include "geo_2D/edge_2D.h"
+#include "geo_2D/segment_2D.h"
 #include "geo_2D/circle_2D.h"
 
 namespace tools_2D
@@ -25,7 +25,7 @@ namespace tools_2D
     
         triangle_2D() = default;
         triangle_2D(const tools_2D::point& a, const tools_2D::point& b, const tools_2D::point& c);
-        triangle_2D(const tools_2D::point& p, const tools_2D::edge_2D& e);
+        triangle_2D(const tools_2D::point& p, const tools_2D::segment& e);
         bool containsVertex(const tools_2D::point& p) const;
         tools_2D::circle circum_circle() const;
         

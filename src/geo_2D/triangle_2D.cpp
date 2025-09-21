@@ -20,7 +20,7 @@ namespace tools_2D
     }
 
 
-    tools_2D::triangle_2D::triangle_2D(const tools_2D::point& p, const tools_2D::edge_2D& e) 
+    tools_2D::triangle_2D::triangle_2D(const tools_2D::point& p, const tools_2D::segment& e) 
         : vertices{p, e.get_points().first, e.get_points().second }{}
             
 
