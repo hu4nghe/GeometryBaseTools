@@ -25,15 +25,13 @@ namespace tools_2D
             
 
     bool 
-    tools_2D::triangle_2D::containsVertex(const tools_2D::point& p) 
-    const 
+    tools_2D::triangle_2D::containsVertex(const tools_2D::point& p) const 
     { 
         return std::ranges::find(vertices, p) != vertices.end(); 
     }     
 
     tools_2D::circle 
-    tools_2D::triangle_2D::circum_circle() 
-    const
+    tools_2D::triangle_2D::circum_circle() const
     { 
         tools_2D::vector_2D ab(vertices[0], vertices[1]);
         tools_2D::vector_2D ac(vertices[0], vertices[2]);

@@ -20,13 +20,46 @@ namespace tools_2D
     class triangle_2D
     {
         std::array<tools_2D::point,3> vertices;
-    
     public:
-    
-        triangle_2D() = default;
+
+        /**
+         * @brief Default Constructor(deleted)
+         * We cannot define the neutral element of triangle, there for default constructor is not available.
+         * 
+         */
+        triangle_2D() = delete;
+
+        /**
+         * @brief Constructor with three points.
+         * 
+         * @param a vertex 1
+         * @param b vertex 2
+         * @param c vertex 3
+         */
         triangle_2D(const tools_2D::point& a, const tools_2D::point& b, const tools_2D::point& c);
+
+        /**
+         * @brief Constructor with a points and a segement.
+         * 
+         * @param p vertex 1
+         * @param e segment of vertex 2 and 3
+         */
         triangle_2D(const tools_2D::point& p, const tools_2D::segment& e);
+
+        /**
+         * @brief To check if current triangle contains a vertex.
+         * 
+         * @param p 
+         * @return true If triangle contains vertex
+         * @return false If triangle does not contain vertex
+         */
         bool containsVertex(const tools_2D::point& p) const;
+
+        /**
+         * @brief Generate a circum circle of triangle.
+         * 
+         * @return tools_2D::circle the circum circle of triangle
+         */
         tools_2D::circle circum_circle() const;
         
     };
