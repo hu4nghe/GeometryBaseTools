@@ -1,6 +1,6 @@
-# GeometryBaseTools
+# geometry_tools
 
-Lightweight header/source geometry utilities for 2D primitives and basic operations.
+Lightweight header/source geometry utilities for 2D Delaunay triangulation.
 
 ## Overview
 
