@@ -1,16 +1,19 @@
 cmake_minimum_required(VERSION 3.28)
 project(geometry_tool LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 23)
-set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-add_library(geometry_tool STATIC
-    src/geo_2D/circle_2D.cpp
-    src/geo_2D/segment_2D.cpp
-    src/geo_2D/point_2D.cpp
-    src/geo_2D/triangle_2D.cpp
-    src/geo_2D/vector_2D.cpp)
+add_library(geometry_tool STATIC)
+target_compile_features(geometry_tool PUBLIC cxx_std_23)
+
+file(GLOB_RECURSE GEO_SOURCES
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/geo_2D/*.cpp"
+)
+
+target_sources(geometry_tool
+    PRIVATE
+        ${GEO_SOURCES}
+)
 
 target_include_directories(geometry_tool
     PUBLIC
@@ -23,6 +26,6 @@ install(
     DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 install(TARGETS geometry_tool EXPORT geometryTargets)
 install(EXPORT geometryTargets
-    FILE geometryConfig.cmake
-    NAMESPACE geometry::
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/geometry)
+    FILE geometry_tool.cmake
+    NAMESPACE geometry_tool::
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/geometry_tool)
