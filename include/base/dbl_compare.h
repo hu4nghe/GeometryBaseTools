@@ -13,6 +13,7 @@
 #include <cmath>
 #include <utility>
 #include <limits>
+#include <algorithm>
 
 namespace tools_2D 
 {

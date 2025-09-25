@@ -6,6 +6,11 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_library(geometry_tool STATIC)
 target_compile_features(geometry_tool PUBLIC cxx_std_23)
 
+if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    target_compile_options(geometry_tool PRIVATE -stdlib=libc++)
+    target_link_options(geometry_tool PRIVATE -stdlib=libc++)
+endif()
+
 file(GLOB_RECURSE GEO_SOURCES
     "${CMAKE_CURRENT_SOURCE_DIR}/src/geo_2D/*.cpp"
 )

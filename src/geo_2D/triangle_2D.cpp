@@ -2,6 +2,7 @@
 
 #include <stdexcept>
 #include <cmath>
+#include <ranges>
 
 #include "geo_2D/vector_2D.h"
 
