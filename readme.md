@@ -1,4 +1,4 @@
-# geometry_tools
+# geometry_tool
 
 Lightweight header/source geometry utilities for 2D Delaunay triangulation.
 
