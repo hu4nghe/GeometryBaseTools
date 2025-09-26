@@ -38,7 +38,7 @@ namespace tools_2D
     tools_2D::point::operator==(const point& other)
     const 
     { 
-        return ID == other.ID && tools_2D::dbl_eq(x, other.x) && tools_2D::dbl_eq(y, other.y); 
+        return tools_2D::dbl_eq(x, other.x) && tools_2D::dbl_eq(y, other.y); 
     }
 
     bool
