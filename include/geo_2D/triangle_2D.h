@@ -62,5 +62,11 @@ namespace tools_2D
          */
         tools_2D::circle circum_circle() const;
         
+        /**
+         * @brief Return 3 edges of triangle
+         * 
+         * @return std::array<segment,3> array that contains 3 edges.
+         */
+        std::array<segment,3> get_edges() const;
     };
 } // namespace tools_2D
