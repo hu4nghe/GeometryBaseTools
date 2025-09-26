@@ -1,5 +1,5 @@
 /**
- * @file triangle_2D.h
+ * @file triangle.h
  * @author HUANG He (he.hu4ng@outlook.com)
  * @brief 2D triangle class
  * @version 0.1
@@ -17,7 +17,7 @@
 
 namespace tools_2D
 {
-    class triangle_2D
+    class triangle
     {
         std::array<tools_2D::point,3> vertices;
     public:
@@ -27,7 +27,7 @@ namespace tools_2D
          * We cannot define the neutral element of triangle, there for default constructor is not available.
          * 
          */
-        triangle_2D() = delete;
+        triangle() = delete;
 
         /**
          * @brief Constructor with three points.
@@ -36,7 +36,7 @@ namespace tools_2D
          * @param b vertex 2
          * @param c vertex 3
          */
-        triangle_2D(const tools_2D::point& a, const tools_2D::point& b, const tools_2D::point& c);
+        triangle(const tools_2D::point& a, const tools_2D::point& b, const tools_2D::point& c);
 
         /**
          * @brief Constructor with a points and a segement.
@@ -44,7 +44,7 @@ namespace tools_2D
          * @param p vertex 1
          * @param e segment of vertex 2 and 3
          */
-        triangle_2D(const tools_2D::point& p, const tools_2D::segment& e);
+        triangle(const tools_2D::point& p, const tools_2D::segment& e);
 
         /**
          * @brief To check if current triangle contains a vertex.
