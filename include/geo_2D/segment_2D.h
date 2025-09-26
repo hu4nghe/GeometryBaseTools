@@ -63,3 +63,19 @@ namespace tools_2D
         auto get_points() const ->std::pair<tools_2D::point, tools_2D::point>;
     };
 } // namespace tools_2D
+
+namespace std 
+{
+    template<>
+    struct hash<tools_2D::segment>
+    {
+        std::size_t operator()(tools_2D::segment const& seg) const noexcept 
+        {
+            auto [a, b] = seg.get_points();
+            auto ha = std::hash<double>{}(a.get_x()) ^ (std::hash<double>{}(a.get_y()) << 1);
+            auto hb = std::hash<double>{}(b.get_x()) ^ (std::hash<double>{}(b.get_y()) << 1);
+            if (ha < hb) return ha ^ (hb + 0x9e3779b9 + (ha<<6) + (ha>>2));
+            else         return hb ^ (ha + 0x9e3779b9 + (hb<<6) + (hb>>2));
+        }
+    };
+} // namespace std

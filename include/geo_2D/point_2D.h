@@ -167,6 +167,20 @@ namespace tools_2D
          */
         const std::pair<double, double> get_coordinates() const;
 
+        /**
+         * @brief Get the x value
+         * 
+         * @return const auto x
+         */
+        const double get_x() const;
+
+        /**
+         * @brief Get the y value
+         * 
+         * @return const auto y
+         */
+        const double get_y() const;
+
         /// Setter ///
 
         /**

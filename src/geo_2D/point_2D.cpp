@@ -102,6 +102,18 @@ namespace tools_2D
     { 
         return {x, y}; 
     }
+
+    const double 
+    tools_2D::point::get_x() const
+    {
+        return x;
+    }
+
+    const double 
+    tools_2D::point::get_y() const
+    {
+        return y;
+    }
     
     void
     tools_2D::point::set_coordinate(double new_x, double new_y) 
